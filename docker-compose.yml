@@ -1,0 +1,15 @@
+version: '3'
+services:
+  fuel_app:
+    build: .
+    volumes:
+      - ../app:/var/www/html/workspace
+    ports:
+      - 8000:8000
+  fuel_database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - 3306:3306
